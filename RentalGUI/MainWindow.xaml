@@ -7,6 +7,82 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="100"/>
+        </Grid.ColumnDefinitions>
+
+        <TextBlock Grid.Row="0" Name="HeadingTextBox" Margin="20" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20" FontWeight="Bold">
+            Car Rental Admin app
+        </TextBlock>
+        <Button Background="LightCyan" Name="CarsButton" Margin="10 5 10 5" Grid.Column="1">Cars</Button>
+        <Button Background="LightCyan" Name="MenuButton" Margin="10 5 10 5" Grid.Column="2">Rental places</Button>
+        <Button Background="LightCyan" Name="ClientsButton" Margin="10 5 10 5" Grid.Column="3">Clients</Button>
+        <Button Background="LightCyan" Name="EmployeesButton" Margin="10 5 10 5" Grid.Column="4">Managers</Button>
+        <TabControl Grid.Row="1" Grid.ColumnSpan="5" Margin="10">
+            <TabItem Header="Current sessions">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <DataGrid Name="CurrentSessionsDataGrid" Grid.Row="1" AutoGenerateColumns="False" IsReadOnly="True">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Session ID" Binding="{Binding Session_ID}"/>
+                            <DataGridTextColumn Header="Start date" Binding="{Binding Start_datetime}"/>
+                            <DataGridTextColumn Header="Car ID" Binding="{Binding Car_ID}"/>
+                            <DataGridTextColumn Header="Client ID" Binding="{Binding Client_ID}"/>
+                            <DataGridTextColumn Header="Manager ID" Binding="{Binding Manager_ID}"/>
+                            <DataGridTextColumn Header="Start location ID" Binding="{Binding Start_location_ID}"/>
+                            <DataGridTextColumn Header="End location ID" Binding="{Binding End_location_ID}"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <StackPanel Background="LightBlue" Grid.Column="1" Width="100" Orientation="Vertical">
+                        <Button Background="LightCyan" Name="addOrderButton" Margin="10 5 10 5">Add</Button>
+                        <Button Background="LightCyan" Name="editOrderButton"  Margin="10 5 10 5">Show / Edit</Button>
+                        <Button Background="LightCyan" Name="closeOrderButton" Margin="10 5 10 5">Close</Button>
+                    </StackPanel>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Past sessions">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Grid.Row="0" Grid.Column="0" Margin="10" HorizontalAlignment="Center" FontWeight="Bold">Start date</TextBlock>
+                    <TextBlock Grid.Row="0" Grid.Column="1" Margin="10" HorizontalAlignment="Center" FontWeight="Bold">End date</TextBlock>
+                    <DatePicker Name="StartDatePicker" Grid.Row="1" Grid.Column="0" Margin="10"></DatePicker>
+                    <DatePicker Name="EndDatePicker" Grid.Row="1" Grid.Column="1" Margin="10"></DatePicker>
+                    <Button Background="LightCyan" Name="ConfirmDatesButton" Grid.Row="2" Grid.ColumnSpan="2" Margin="300 10" Click="ConfirmDatesButton_OnClick">Confirm</Button>
+                    <DataGrid Grid.Row="3" Grid.ColumnSpan="2" Name="PastSessionsDataGrid" AutoGenerateColumns="False" IsReadOnly="True">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Session ID" Binding="{Binding Session_ID}"/>
+                            <DataGridTextColumn Header="Start date" Binding="{Binding Start_datetime}"/>
+                            <DataGridTextColumn Header="End date" Binding="{Binding End_datetime}"/>
+                            <DataGridTextColumn Header="Car ID" Binding="{Binding Car_ID}"/>
+                            <DataGridTextColumn Header="Client ID" Binding="{Binding Client_ID}"/>
+                            <DataGridTextColumn Header="Manager ID" Binding="{Binding Manager_ID}"/>
+                            <DataGridTextColumn Header="Start location ID" Binding="{Binding Start_location_ID}"/>
+                            <DataGridTextColumn Header="End location ID" Binding="{Binding End_location_ID}"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Grid>
+            </TabItem>
+        </TabControl>
 
     </Grid>
 </Window>

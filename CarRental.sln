@@ -3,11 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29519.87
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RentalCore", "RentalCore\RentalCore.csproj", "{7EA946AA-6DFC-4D6D-A296-5679B6E08464}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RentalCore", "RentalCore\RentalCore.csproj", "{7EA946AA-6DFC-4D6D-A296-5679B6E08464}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RentalGUI", "RentalGUI\RentalGUI.csproj", "{BCDC26A1-CE08-43FA-AD52-0ED89AFABE9A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RentalGUI", "RentalGUI\RentalGUI.csproj", "{BCDC26A1-CE08-43FA-AD52-0ED89AFABE9A}"
+	ProjectSection(ProjectDependencies) = postProject
+		{7EA946AA-6DFC-4D6D-A296-5679B6E08464} = {7EA946AA-6DFC-4D6D-A296-5679B6E08464}
+	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClientApp", "ClientApp\ClientApp.csproj", "{E9ED36A5-32CA-4FA1-86E8-131EEFA90BA3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClientApp", "ClientApp\ClientApp.csproj", "{E9ED36A5-32CA-4FA1-86E8-131EEFA90BA3}"
+	ProjectSection(ProjectDependencies) = postProject
+		{7EA946AA-6DFC-4D6D-A296-5679B6E08464} = {7EA946AA-6DFC-4D6D-A296-5679B6E08464}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
