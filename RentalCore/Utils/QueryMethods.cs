@@ -95,6 +95,45 @@ namespace RentalCore.Utils
 
             return sessions;
         }
-        
+
+        public List<CarQh> QueryCars(SqlConnection conn)
+        {
+            var cars = new List<CarQh>();
+            var sql = "select * from Car";
+            var cmd = new SqlCommand
+            {
+                Connection = conn,
+                CommandText = sql
+            };
+            using (DbDataReader reader = cmd.ExecuteReader())
+            {
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        var carID = reader.GetInt32(0);
+                        var carPlateNumber = reader.GetString(1);
+                        var fuelLeft = reader.GetInt32(2);
+                        var colour = reader.GetString(3);
+                        var isFree = reader.GetBoolean(4);
+                        var modelID = reader.GetInt32(5);
+                        
+                        var tempCar = new CarQh()
+                        {
+                            Car_ID = carID,
+                            Car_Plate_Number = carPlateNumber,
+                            Fuel_left = fuelLeft,
+                            Colour = colour,
+                            is_Free = isFree,
+                            Model_ID = modelID
+                        };
+
+                        cars.Add(tempCar);
+                    }
+                }
+            }
+
+            return cars;
+        }
     }
 }

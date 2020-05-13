@@ -18,9 +18,6 @@ using System.Data.SqlClient;
 
 namespace RentalGUI
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
         QueryMethods qm = new QueryMethods();
@@ -84,6 +81,18 @@ namespace RentalGUI
             {
                 MessageBox.Show("Choose dates!");
             }
+        }
+        private void CloseSqlConnection()
+        {
+            conn.Close();
+            conn.Dispose();
+        }
+        private void CarsButton_OnClick(object sender, RoutedEventArgs e)
+        {
+            CloseSqlConnection();
+            var cw = new CarWindow();
+            cw.Show();
+            this.Close();
         }
     }
 }

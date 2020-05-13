@@ -19,4 +19,14 @@ namespace RentalCore.Utils
         public int End_location_ID { get; set; }
 
     }
+
+    public class CarQh
+    {
+        public int Car_ID { get; set; }
+        public string Car_Plate_Number { get; set; }
+        public int Fuel_left { get; set; }
+        public string Colour { get; set; }
+        public bool is_Free { get; set; }
+        public int Model_ID { get; set; }
+    }
 }
