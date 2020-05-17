@@ -23,7 +23,7 @@
             Car Rental Admin app
         </TextBlock>
         <Button Background="LightCyan" Name="CarsButton" Margin="10 5 10 5" Grid.Column="1" Click="CarsButton_OnClick">Cars</Button>
-        <Button Background="LightCyan" Name="MenuButton" Margin="10 5 10 5" Grid.Column="2">Rental places</Button>
+        <Button Background="LightCyan" Name="MenuButton" Margin="10 5 10 5" Grid.Column="2" Click="MenuButton_OnClick">Rental places</Button>
         <Button Background="LightCyan" Name="ClientsButton" Margin="10 5 10 5" Grid.Column="3">Clients</Button>
         <Button Background="LightCyan" Name="EmployeesButton" Margin="10 5 10 5" Grid.Column="4">Managers</Button>
         <TabControl Grid.Row="1" Grid.ColumnSpan="5" Margin="10">

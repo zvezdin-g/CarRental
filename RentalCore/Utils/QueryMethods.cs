@@ -135,5 +135,82 @@ namespace RentalCore.Utils
 
             return cars;
         }
+        public List<ModelQh> QueryModels(SqlConnection conn)
+        {
+            var models = new List<ModelQh>();
+            var sql = "select * from Model";
+            var cmd = new SqlCommand
+            {
+                Connection = conn,
+                CommandText = sql
+            };
+            using (DbDataReader reader = cmd.ExecuteReader())
+            {
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        var modelId = reader.GetInt32(0);
+                        var modelName = reader.GetString(1);
+                        var bodyType = reader.GetString(2);
+                        var transmission = reader.GetString(3);
+                        var hp = reader.GetInt32(4);
+                        var engineCapacity = reader.GetInt32(5);
+                        var classId = reader.GetInt32(6);
+                        var manufacturerId = reader.GetInt32(7);
+
+                        var tempModel = new ModelQh()
+                        {
+                            Model_ID = modelId,
+                            Model_Name = modelName,
+                            Body_type = bodyType,
+                            Transmission = transmission,
+                            HP = hp,
+                            Engine_capacity = engineCapacity,
+                            Class_ID = classId,
+                            Manufacturer_ID = manufacturerId
+                        };
+
+                        models.Add(tempModel);
+                    }
+                }
+            }
+
+            return models;
+        }
+        public List<RentalQh> QueryRentals(SqlConnection conn)
+        {
+            var rentals = new List<RentalQh>();
+            var sql = "select * from Rental_place";
+            var cmd = new SqlCommand
+            {
+                Connection = conn,
+                CommandText = sql
+            };
+            using (DbDataReader reader = cmd.ExecuteReader())
+            {
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        var rentalId = reader.GetInt32(0);
+                        var rentalName = reader.GetString(2);
+                        var location = reader.GetString(1);
+                        
+
+                        var tempRental = new RentalQh()
+                        {
+                            Rental_ID = rentalId,
+                            Rental_Name = rentalName,
+                            Location = location
+                        };
+
+                        rentals.Add(tempRental);
+                    }
+                }
+            }
+
+            return rentals;
+        }
     }
 }

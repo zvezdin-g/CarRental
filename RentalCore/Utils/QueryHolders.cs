@@ -29,4 +29,24 @@ namespace RentalCore.Utils
         public bool is_Free { get; set; }
         public int Model_ID { get; set; }
     }
+
+    public class ModelQh
+    {
+        public int Model_ID { get; set; }
+        public string Model_Name { get; set; }
+        public string Body_type { get; set; }
+        public string Transmission { get; set; }
+        public int HP { get; set; }
+        public int Engine_capacity { get; set; }
+        public int Class_ID { get; set; }
+        public int Manufacturer_ID { get; set; }
+    }
+
+    public class RentalQh
+    {
+        public int Rental_ID { get; set; }
+        public string Rental_Name { get; set; }
+        public string Location { get; set; }
+        
+    }
 }

@@ -1,0 +1,32 @@
+﻿<Window x:Class="RentalGUI.RentalWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:RentalGUI"
+        mc:Ignorable="d"
+        Title="RentalWindow" Height="250" Width="400">
+    <Grid Background="LightCyan">
+        <Grid Margin="10">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <DataGrid Name="RentalsDataGrid" Grid.Row="0" AutoGenerateColumns="False" IsReadOnly="True">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Rental ID" Binding="{Binding Rental_ID}"/>
+                    <DataGridTextColumn Header="Rental Name" Binding="{Binding Rental_Name}"/>
+                    <DataGridTextColumn Header="Location" Binding="{Binding Location}"/>
+                </DataGrid.Columns>
+            </DataGrid>
+            <Grid Background="LightBlue" Grid.Row="1" Width="Auto">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Button Grid.Column="0" Background="LightCyan" Name="addCarButton" Margin="10 5 10 5">Add</Button>
+                <Button Grid.Column="1" Background="LightCyan" Name="showCarButton"  Margin="10 5 10 5">Show</Button>
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>
