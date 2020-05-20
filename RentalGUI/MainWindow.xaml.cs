@@ -95,11 +95,24 @@ namespace RentalGUI
             this.Close();
         }
 
-        private void MenuButton_OnClick(object sender, RoutedEventArgs e)
+        private void RentalButton_OnClick(object sender, RoutedEventArgs e)
         {
             var rw = new RentalWindow(conn);
             rw.ShowDialog();
 
+        }
+
+        private void CloseSessionButton_OnClick(object sender, RoutedEventArgs e)
+        {
+            SessionQh selectedSession = (SessionQh)CurrentSessionsDataGrid.SelectedItem;
+            if (selectedSession == null)
+            {
+                MessageBox.Show("Choose session to close");
+                return;
+            }
+            var closeWindow = new MainWindow_CloseSession(conn, selectedSession);
+            closeWindow.ShowDialog();
+            UpdateSessions();
         }
     }
 }

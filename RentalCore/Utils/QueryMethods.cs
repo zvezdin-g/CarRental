@@ -50,6 +50,7 @@ namespace RentalCore.Utils
 
             return sessions;
         }
+
         public List<SessionQh> QueryPastSessions(SqlConnection conn)
         {
             var sessions = new List<SessionQh>();
@@ -117,7 +118,7 @@ namespace RentalCore.Utils
                         var colour = reader.GetString(3);
                         var isFree = reader.GetBoolean(4);
                         var modelID = reader.GetInt32(5);
-                        
+
                         var tempCar = new CarQh()
                         {
                             Car_ID = carID,
@@ -135,6 +136,7 @@ namespace RentalCore.Utils
 
             return cars;
         }
+
         public List<ModelQh> QueryModels(SqlConnection conn)
         {
             var models = new List<ModelQh>();
@@ -178,6 +180,7 @@ namespace RentalCore.Utils
 
             return models;
         }
+
         public List<RentalQh> QueryRentals(SqlConnection conn)
         {
             var rentals = new List<RentalQh>();
@@ -196,7 +199,7 @@ namespace RentalCore.Utils
                         var rentalId = reader.GetInt32(0);
                         var rentalName = reader.GetString(2);
                         var location = reader.GetString(1);
-                        
+
 
                         var tempRental = new RentalQh()
                         {
@@ -211,6 +214,67 @@ namespace RentalCore.Utils
             }
 
             return rentals;
+        }
+        public List<FineQh> QueryFines(SqlConnection conn)
+        {
+            var fines = new List<FineQh>();
+            var sql = "select * from Fine";
+            var cmd = new SqlCommand
+            {
+                Connection = conn,
+                CommandText = sql
+            };
+            using (DbDataReader reader = cmd.ExecuteReader())
+            {
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        var fId = reader.GetInt32(0);
+                        var fDesc = reader.GetString(1);
+                        var fCost = reader.GetInt32(2);
+
+
+                        var tempFine = new FineQh()
+                        {
+                            Fine_ID = fId,
+                            Fine_description = fDesc,
+                            Fine_cost = fCost
+                        };
+
+                        fines.Add(tempFine);
+                    }
+                }
+            }
+
+            return fines;
+        }
+        public void QueryCloseOrder(SqlConnection conn, SessionQh session, FineQh fine)
+        {
+            string sql;
+            if (fine != null)
+            {
+                sql = "update Session set End_datetime = @dateclosed where Session_ID = @sessionid;" +
+                          "insert into Car_Return(Session_ID, Fine_ID) Values (@sessionid, @fineid);" +
+                          "insert into Payments(Session_ID, Date_time) Values (@sessionid, @dateclosed);";
+            }
+            else
+            {
+                sql = "update Session set End_datetime = @dateclosed where Session_ID = @sessionid;" +
+                      "insert into Car_Return(Session_ID) Values (@sessionid);" +
+                      "insert into Payments(Session_ID, Date_time) Values (@sessionid, @dateclosed);";
+            }
+            
+            var cmd = new SqlCommand()
+            {
+                Connection = conn,
+                CommandText = sql
+            };
+            if (fine != null)
+                cmd.Parameters.Add("@fineid", SqlDbType.Int).Value = fine.Fine_ID;
+            cmd.Parameters.Add("@dateclosed", SqlDbType.DateTime).Value = DateTime.Now;
+            cmd.Parameters.Add("@sessionid", SqlDbType.Int).Value = session.Session_ID;
+            cmd.ExecuteNonQuery();
         }
     }
 }

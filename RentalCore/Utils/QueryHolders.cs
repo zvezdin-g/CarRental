@@ -49,4 +49,11 @@ namespace RentalCore.Utils
         public string Location { get; set; }
         
     }
+
+    public class FineQh
+    {
+        public int Fine_ID { get; set; }
+        public string Fine_description { get; set; }
+        public int Fine_cost { get; set; }
+    }
 }

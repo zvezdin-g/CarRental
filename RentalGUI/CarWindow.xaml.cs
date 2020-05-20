@@ -53,5 +53,11 @@ namespace RentalGUI
             mw.Show();
             this.Close();
         }
+        private void RentalButton_OnClick(object sender, RoutedEventArgs e)
+        {
+            var rw = new RentalWindow(conn);
+            rw.ShowDialog();
+
+        }
     }
 }

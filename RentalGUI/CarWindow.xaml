@@ -23,9 +23,9 @@
             Car Rental Admin app
         </TextBlock>
         <Button Background="LightCyan" Name="SessionsButton" Margin="10 5 10 5" Grid.Column="1" Click="SessionsButton_OnClick">Sessions</Button>
-        <Button Background="LightCyan" Name="MenuButton" Margin="10 5 10 5" Grid.Column="2">Rental places</Button>
+        <Button Background="LightCyan" Name="RentalButton" Margin="10 5 10 5" Grid.Column="2" Click="RentalButton_OnClick">Rental places</Button>
         <Button Background="LightCyan" Name="ClientsButton" Margin="10 5 10 5" Grid.Column="3">Clients</Button>
-        <Button Background="LightCyan" Name="EmployeesButton" Margin="10 5 10 5" Grid.Column="4">Managers</Button>
+        <Button Background="LightCyan" Name="ManagersButton" Margin="10 5 10 5" Grid.Column="4">Managers</Button>
         <Grid Row="1" ColumnSpan="5" Margin="10">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
