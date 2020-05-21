@@ -56,4 +56,16 @@ namespace RentalCore.Utils
         public string Fine_description { get; set; }
         public int Fine_cost { get; set; }
     }
+
+    public class FinancesQh
+    {
+        public int Session_ID { get; set; }
+        public DateTime DateTime { get; set; }
+        public int Rental_cost { get; set; }
+        public string? Fine_description { get; set; }
+        public int? Fine_cost { get; set; }
+        public int Total_cost { get; set; }
+
+    }
+
 }

@@ -82,6 +82,35 @@
                     </DataGrid>
                 </Grid>
             </TabItem>
+            <TabItem Header="Finances">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Grid.Row="0" Grid.Column="0" Margin="10" HorizontalAlignment="Center" FontWeight="Bold">Start date</TextBlock>
+                    <TextBlock Grid.Row="0" Grid.Column="1" Margin="10" HorizontalAlignment="Center" FontWeight="Bold">End date</TextBlock>
+                    <DatePicker Name="FStartDatePicker" Grid.Row="1" Grid.Column="0" Margin="10"></DatePicker>
+                    <DatePicker Name="FEndDatePicker" Grid.Row="1" Grid.Column="1" Margin="10"></DatePicker>
+                    <Button Background="LightCyan" Name="FConfirmDatesButton" Grid.Row="2" Grid.ColumnSpan="2" Margin="300 10" Click="FConfirmDatesButton_OnClick">Confirm</Button>
+                    <DataGrid Grid.Row="3" Grid.ColumnSpan="2" Name="FinancesDataGrid" AutoGenerateColumns="False" IsReadOnly="True">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Session ID" Binding="{Binding Session_ID}"/>
+                            <DataGridTextColumn Header="Date time" Binding="{Binding DateTime}"/>
+                            <DataGridTextColumn Header="Rental cost" Binding="{Binding Rental_cost}"/>
+                            <DataGridTextColumn Header="Fine description" Binding="{Binding Fine_description}"/>
+                            <DataGridTextColumn Header="Fine cost" Binding="{Binding Fine_cost}"/>
+                            <DataGridTextColumn Header="Total cost" Binding="{Binding Total_cost}"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Grid>
+            </TabItem>
         </TabControl>
 
     </Grid>

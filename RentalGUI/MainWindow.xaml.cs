@@ -23,6 +23,7 @@ namespace RentalGUI
         QueryMethods qm = new QueryMethods();
         List<SessionQh> currentSessionsList = new List<SessionQh>();
         List<SessionQh> pastOrdersList = new List<SessionQh>();
+        List<FinancesQh> financesList = new List<FinancesQh>();
         SqlConnection conn = DbUtils.GetDBConnection();
         public MainWindow()
         {
@@ -30,7 +31,7 @@ namespace RentalGUI
             try
             {
                 conn.Open();
-                UpdateSessions();
+                UpdateAll();
             }
             catch (Exception e)
             {
@@ -51,10 +52,17 @@ namespace RentalGUI
             PastSessionsDataGrid.ItemsSource = pastOrdersList;
         }
 
-        private void UpdateSessions()
+        private void UpdateFinances()
+        {
+            financesList = qm.QueryFinances(conn);
+            FinancesDataGrid.ItemsSource = null;
+            FinancesDataGrid.ItemsSource = financesList;
+        }
+        private void UpdateAll()
         {
             UpdateCurrentSessions();
             UpdatePastSessions();
+            UpdateFinances();
         }
         private void ConfirmDatesButton_OnClick(object sender, RoutedEventArgs e)
         {
@@ -71,6 +79,32 @@ namespace RentalGUI
                                                        <= end);
                     PastSessionsDataGrid.ItemsSource = null;
                     PastSessionsDataGrid.ItemsSource = datedOrders;
+                }
+                else
+                {
+                    MessageBox.Show("Start should be earlier than end!");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Choose dates!");
+            }
+        }
+        private void FConfirmDatesButton_OnClick(object sender, RoutedEventArgs e)
+        {
+            var start = FStartDatePicker.SelectedDate;
+            var end = FEndDatePicker.SelectedDate;
+            if (start != null && end != null)
+            {
+                start = Convert.ToDateTime(start);
+                end = Convert.ToDateTime(end).AddHours(23).AddMinutes(59);
+                if (start <= end)
+                {
+                    var datedFinances =
+                        financesList.FindAll(item => item.DateTime >= start && item.DateTime
+                                                       <= end);
+                    FinancesDataGrid.ItemsSource = null;
+                    FinancesDataGrid.ItemsSource = datedFinances;
                 }
                 else
                 {
@@ -112,7 +146,7 @@ namespace RentalGUI
             }
             var closeWindow = new MainWindow_CloseSession(conn, selectedSession);
             closeWindow.ShowDialog();
-            UpdateSessions();
+            UpdateAll();
         }
     }
 }

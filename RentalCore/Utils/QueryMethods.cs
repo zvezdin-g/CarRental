@@ -276,5 +276,59 @@ namespace RentalCore.Utils
             cmd.Parameters.Add("@sessionid", SqlDbType.Int).Value = session.Session_ID;
             cmd.ExecuteNonQuery();
         }
+        public List<FinancesQh> QueryFinances(SqlConnection conn)
+        {
+            var finances = new List<FinancesQh>();
+            var sql = "select p.Session_ID, " +
+                      "p.Date_time, " +
+                      "Rental_cost, " +
+                      "Fine_description, " +
+                      "Fine_cost, " +
+                      "Total_cost " +
+                      "from Payments p left join Car_Return cr on p.Session_ID=cr.Session_ID " +
+                      "left join Fine f on cr.Fine_ID=f.Fine_ID";
+            var cmd = new SqlCommand
+            {
+                Connection = conn,
+                CommandText = sql
+            };
+            using (DbDataReader reader = cmd.ExecuteReader())
+            {
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        var sId = reader.GetInt32(0);
+                        var dt = reader.GetDateTime(1);
+                        var rCost = reader.GetInt32(2);
+                        var fDesc = reader.GetValue(3) as string;
+                        if (fDesc != null)
+                            fDesc = reader.GetString(3);
+                        else
+                            fDesc = "---";
+                        var fCost = reader.GetValue(4) as int?;
+                        if (fCost != null)
+                            fCost = reader.GetInt32(4);
+                        else
+                            fCost = 0;
+                        var tCost = reader.GetInt32(5);
+
+                        var tempFinances = new FinancesQh()
+                        {
+                            Session_ID = sId,
+                            DateTime = dt,
+                            Rental_cost = rCost,
+                            Fine_description = fDesc,
+                            Fine_cost = fCost,
+                            Total_cost = tCost
+                        };
+
+                        finances.Add(tempFinances);
+                    }
+                }
+            }
+
+            return finances;
+        }
     }
 }
