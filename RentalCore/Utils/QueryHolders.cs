@@ -68,4 +68,18 @@ namespace RentalCore.Utils
 
     }
 
+    public class ClientQh
+    {
+        public int Client_ID { get; set; }
+        public string Last_Name { get; set; }
+        public string First_Name { get; set; }
+        public DateTime DOB { get; set; }
+        public DateTime DOI { get; set; }
+        public int Driving_experience { get; set; }
+        public int Insurance_class { get; set; }
+        public string Phone { get; set; }
+        public string Licence_number { get; set; }
+
+    }
+
 }

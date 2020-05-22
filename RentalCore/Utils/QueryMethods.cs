@@ -330,5 +330,50 @@ namespace RentalCore.Utils
 
             return finances;
         }
+        public List<ClientQh> QueryClients(SqlConnection conn)
+        {
+            var clients = new List<ClientQh>();
+            var sql = "select * from Client";
+            var cmd = new SqlCommand
+            {
+                Connection = conn,
+                CommandText = sql
+            };
+            using (DbDataReader reader = cmd.ExecuteReader())
+            {
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        var cId = reader.GetInt32(0);
+                        var ln = reader.GetString(1);
+                        var fn = reader.GetString(2);
+                        var dob = reader.GetDateTime(3);
+                        var doi = reader.GetDateTime(4);
+                        var exp = reader.GetInt32(5);
+                        var ins_class = reader.GetInt32(6);
+                        var phone = reader.GetString(7);
+                        var licence = reader.GetString(8);
+                        
+                        var temp= new ClientQh()
+                        {
+                            Client_ID = cId,
+                            Last_Name = ln,
+                            First_Name = fn,
+                            DOB = dob,
+                            DOI = doi,
+                            Driving_experience = exp,
+                            Insurance_class = ins_class,
+                            Phone = phone,
+                            Licence_number = licence
+                        };
+
+                        clients.Add(temp);
+                    }
+                }
+            }
+
+            return clients;
+        }
     }
 }

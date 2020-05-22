@@ -148,5 +148,13 @@ namespace RentalGUI
             closeWindow.ShowDialog();
             UpdateAll();
         }
+
+        private void ClientsButton_OnClick(object sender, RoutedEventArgs e)
+        {
+            CloseSqlConnection();
+            var cw = new ClientWindow();
+            cw.Show();
+            this.Close();
+        }
     }
 }
