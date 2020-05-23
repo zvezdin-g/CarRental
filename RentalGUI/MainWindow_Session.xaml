@@ -1,0 +1,48 @@
+﻿<Window x:Class="RentalGUI.MainWindow_Session"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:RentalGUI"
+        mc:Ignorable="d"
+        Title="MainWindow_Session" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <TextBlock Grid.ColumnSpan="3" Name="TitleTextBlock" Margin="20" VerticalAlignment="Center" TextAlignment="Center"  FontSize="24"></TextBlock>
+
+        <TextBlock Grid.Row="1" Grid.Column="0" Margin="20 10" VerticalAlignment="Center" TextAlignment="Center" FontSize="16">Client</TextBlock>
+        <ComboBox Grid.Row="1" Grid.Column="1" Margin="20 10" Name="ClientComboBox" DisplayMemberPath="Last_Name"></ComboBox>
+        <Button Grid.Row="1" Grid.Column="2" Margin="20 10" Name="ClientButton" Click="ClientButton_OnClick">Confirm</Button>
+
+        <TextBlock Grid.Row="2" Grid.Column="0" Margin="20 10" VerticalAlignment="Center" TextAlignment="Center" FontSize="16">Car</TextBlock>
+        <ComboBox Grid.Row="2" Grid.Column="1" Margin="20 10" IsEnabled="False" Name="CarComboBox" DisplayMemberPath="Car_Plate_Number"></ComboBox>
+        <Button Grid.Row="2" Grid.Column="2" Margin="20 10" IsEnabled="False" Name="CarButton" Click="CarButton_OnClick">Confirm</Button>
+
+        <TextBlock Grid.Row="3" Grid.Column="0" Margin="20 10" VerticalAlignment="Center" TextAlignment="Center" FontSize="16">Start Rental</TextBlock>
+        <ComboBox Grid.Row="3" Grid.Column="1" Margin="20 10" IsEnabled="False" Name="StartComboBox" DisplayMemberPath="Rental_Name"></ComboBox>
+        <Button Grid.Row="3" Grid.Column="2" Margin="20 10" IsEnabled="False" Name="StartButton" Click="StartButton_OnClick">Confirm</Button>
+
+        <TextBlock Grid.Row="4" Grid.Column="0" Margin="20 10" VerticalAlignment="Center" TextAlignment="Center" FontSize="16">End Rental</TextBlock>
+        <ComboBox Grid.Row="4" Grid.Column="1" Margin="20 10" IsEnabled="False" Name="EndComboBox" DisplayMemberPath="Rental_Name"></ComboBox>
+        <Button Grid.Row="4" Grid.Column="2" Margin="20 10" IsEnabled="False" Name="EndButton" Click="EndButton_OnClick">Confirm</Button>
+
+        <TextBlock Grid.Row="5" Grid.Column="0" Margin="20 10" VerticalAlignment="Center" TextAlignment="Center" FontSize="16">Manager</TextBlock>
+        <ComboBox Grid.Row="5" Grid.Column="1" Margin="20 10" IsEnabled="False" Name="ManagerComboBox" DisplayMemberPath="Manager_Name"></ComboBox>
+        <Button Grid.Row="5" Grid.Column="2" Margin="20 10" IsEnabled="False" Name="ManagerButton" Click="ManagerButton_OnClick">Confirm and add new session</Button>
+
+    </Grid>
+</Window>

@@ -415,5 +415,65 @@ namespace RentalCore.Utils
             return managers;
         }
 
+        public List<CarQh> QueryAvailableCars(SqlConnection conn, int driving_experience)
+        {
+            var cars = new List<CarQh>();
+            var sql = "select * " +
+                      "from Car c join model m on c.Model_ID=m.Model_ID " +
+                      "join Class cl on m.Class_ID=cl.Class_ID " +
+                      "where cl.Required_experience <= " + driving_experience + " and c.is_Free=1;";
+            var cmd = new SqlCommand
+            {
+                Connection = conn,
+                CommandText = sql
+            };
+            using (DbDataReader reader = cmd.ExecuteReader())
+            {
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        var carID = reader.GetInt32(0);
+                        var carPlateNumber = reader.GetString(1);
+                        var fuelLeft = reader.GetInt32(2);
+                        var colour = reader.GetString(3);
+                        var isFree = reader.GetBoolean(4);
+                        var modelID = reader.GetInt32(5);
+
+                        var tempCar = new CarQh()
+                        {
+                            Car_ID = carID,
+                            Car_Plate_Number = carPlateNumber,
+                            Fuel_left = fuelLeft,
+                            Colour = colour,
+                            is_Free = isFree,
+                            Model_ID = modelID
+                        };
+
+                        cars.Add(tempCar);
+                    }
+                }
+            }
+
+            return cars;
+        }
+        public void QueryAddSession(SqlConnection conn, int client, int car, int start, int end, int manager)
+        {
+
+            var sql = "exec AddNewSession @client, @car, @start, @end, @manager";
+
+            var cmd = new SqlCommand()
+            {
+                Connection = conn,
+                CommandText = sql
+            };
+            
+            cmd.Parameters.Add("@client", SqlDbType.Int).Value = client;
+            cmd.Parameters.Add("@car", SqlDbType.Int).Value = car;
+            cmd.Parameters.Add("@start", SqlDbType.Int).Value = start;
+            cmd.Parameters.Add("@end", SqlDbType.Int).Value = end;
+            cmd.Parameters.Add("@manager", SqlDbType.Int).Value = manager;
+            cmd.ExecuteNonQuery();
+        }
     }
 }

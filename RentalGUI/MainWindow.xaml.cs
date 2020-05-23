@@ -164,5 +164,24 @@ namespace RentalGUI
             mw.Show();
             this.Close();
         }
+
+        private void ShowSessionButton_OnClick(object sender, RoutedEventArgs e)
+        {
+            SessionQh selectedSession = (SessionQh)CurrentSessionsDataGrid.SelectedItem;
+            if (selectedSession == null)
+            {
+                MessageBox.Show("Choose session to show");
+                return;
+            }
+            var edit = new MainWindow_Session(conn, selectedSession);
+            edit.ShowDialog();
+            UpdateAll();
+        }
+        private void AddSessionButton_OnClick(object sender, RoutedEventArgs e)
+        {
+            var add = new MainWindow_Session(conn, null);
+            add.ShowDialog();
+            UpdateAll();
+        }
     }
 }

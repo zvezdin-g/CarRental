@@ -45,9 +45,9 @@
                         </DataGrid.Columns>
                     </DataGrid>
                     <StackPanel Background="LightBlue" Grid.Column="1" Width="100" Orientation="Vertical">
-                        <Button Background="LightCyan" Name="addOrderButton" Margin="10 5 10 5">Add</Button>
-                        <Button Background="LightCyan" Name="editOrderButton"  Margin="10 5 10 5">Show / Edit</Button>
-                        <Button Background="LightCyan" Name="closeOrderButton" Margin="10 5 10 5" Click="CloseSessionButton_OnClick">Close</Button>
+                        <Button Background="LightCyan" Name="addSessionButton" Margin="10 5 10 5" Click="AddSessionButton_OnClick">Add</Button>
+                        <Button Background="LightCyan" Name="showSessionButton"  Margin="10 5 10 5" Click="ShowSessionButton_OnClick">Show</Button>
+                        <Button Background="LightCyan" Name="closeSessionButton" Margin="10 5 10 5" Click="CloseSessionButton_OnClick">Close</Button>
                     </StackPanel>
                 </Grid>
             </TabItem>
