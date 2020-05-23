@@ -156,5 +156,13 @@ namespace RentalGUI
             cw.Show();
             this.Close();
         }
+
+        private void ManagersButton_OnClick(object sender, RoutedEventArgs e)
+        {
+            CloseSqlConnection();
+            var mw = new ManagerWindow();
+            mw.Show();
+            this.Close();
+        }
     }
 }

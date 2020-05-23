@@ -81,5 +81,13 @@ namespace RentalCore.Utils
         public string Licence_number { get; set; }
 
     }
-
+    public class ManagerQh
+    {
+        public int Manager_ID { get; set; }
+        public string Manager_Name { get; set; }
+        public string Passport_number { get; set; }
+        public DateTime DOB { get; set; }
+        public DateTime Works_from { get; set; }
+        public string Phone { get; set; }
+    }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -9,23 +10,22 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using System.Data.SqlClient;
 using RentalCore.Utils;
 
 namespace RentalGUI
 {
-    public partial class ClientWindow : Window
+    public partial class ManagerWindow : Window
     {
         QueryMethods qm = new QueryMethods();
-        List<ClientQh> clientsList = new List<ClientQh>();
+        List<ManagerQh> managers = new List<ManagerQh>();
         SqlConnection conn = DbUtils.GetDBConnection();
-        public ClientWindow()
+        public ManagerWindow()
         {
             InitializeComponent();
             try
             {
                 conn.Open();
-                UpdateClients();
+                UpdateManagers();
             }
             catch (Exception e)
             {
@@ -46,11 +46,11 @@ namespace RentalGUI
             this.Close();
         }
 
-        private void UpdateClients()
+        private void UpdateManagers()
         {
-            clientsList = qm.QueryClients(conn);
-            ClientsDataGrid.ItemsSource = null;
-            ClientsDataGrid.ItemsSource = clientsList;
+            managers = qm.QueryManagers(conn);
+            ManagersDataGrid.ItemsSource = null;
+            ManagersDataGrid.ItemsSource = managers;
         }
         private void SessionsButton_OnClick(object sender, RoutedEventArgs e)
         {
@@ -66,11 +66,11 @@ namespace RentalGUI
 
         }
 
-        private void ManagersButton_OnClick(object sender, RoutedEventArgs e)
+        private void ClientsButton_OnClick(object sender, RoutedEventArgs e)
         {
             CloseSqlConnection();
-            var mw = new ManagerWindow();
-            mw.Show();
+            var cw = new ClientWindow();
+            cw.Show();
             this.Close();
         }
     }

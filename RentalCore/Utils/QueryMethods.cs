@@ -375,5 +375,45 @@ namespace RentalCore.Utils
 
             return clients;
         }
+        public List<ManagerQh> QueryManagers(SqlConnection conn)
+        {
+            var managers = new List<ManagerQh>();
+            var sql = "select * from Manager";
+            var cmd = new SqlCommand
+            {
+                Connection = conn,
+                CommandText = sql
+            };
+            using (DbDataReader reader = cmd.ExecuteReader())
+            {
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        var mId = reader.GetInt32(1);
+                        var name = reader.GetString(0);
+                        var passport = reader.GetString(2);
+                        var dob = reader.GetDateTime(3);
+                        var works_from = reader.GetDateTime(4);
+                        var phone = reader.GetString(5);
+                        
+                        var temp = new ManagerQh()
+                        {
+                            Manager_ID = mId,
+                            Manager_Name = name,
+                            Passport_number = passport,
+                            DOB = dob,
+                            Works_from = works_from,
+                            Phone = phone
+                        };
+
+                        managers.Add(temp);
+                    }
+                }
+            }
+
+            return managers;
+        }
+
     }
 }

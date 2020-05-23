@@ -25,7 +25,7 @@
         <Button Background="LightCyan" Name="SessionsButton" Margin="10 5 10 5" Grid.Column="1" Click="SessionsButton_OnClick">Sessions</Button>
         <Button Background="LightCyan" Name="RentalButton" Margin="10 5 10 5" Grid.Column="2" Click="RentalButton_OnClick">Rental places</Button>
         <Button Background="LightCyan" Name="CarsButton" Margin="10 5 10 5" Grid.Column="3" Click="CarsButton_OnClick">Cars</Button>
-        <Button Background="LightCyan" Name="ManagersButton" Margin="10 5 10 5" Grid.Column="4">Managers</Button>
+        <Button Background="LightCyan" Name="ManagersButton" Margin="10 5 10 5" Grid.Column="4" Click="ManagersButton_OnClick">Managers</Button>
         <Grid Row="1" ColumnSpan="5" Margin="10">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>

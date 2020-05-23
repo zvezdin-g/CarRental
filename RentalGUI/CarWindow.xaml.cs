@@ -59,5 +59,21 @@ namespace RentalGUI
             rw.ShowDialog();
 
         }
+
+        private void ClientsButton_OnClick(object sender, RoutedEventArgs e)
+        {
+            CloseSqlConnection();
+            var cw = new ClientWindow();
+            cw.Show();
+            this.Close();
+        }
+
+        private void ManagersButton_OnClick(object sender, RoutedEventArgs e)
+        {
+            CloseSqlConnection();
+            var mw = new ManagerWindow();
+            mw.Show();
+            this.Close();
+        }
     }
 }
