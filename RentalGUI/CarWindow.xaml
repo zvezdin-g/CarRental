@@ -42,9 +42,8 @@
                 </DataGrid.Columns>
             </DataGrid>
             <StackPanel Background="LightBlue" Grid.Column="1" Width="100" Orientation="Vertical">
-                <Button Background="LightCyan" Name="addCarButton" Margin="10 5 10 5">Add</Button>
-                <Button Background="LightCyan" Name="showCarButton"  Margin="10 5 10 5">Show</Button>
-                <Button Background="LightCyan" Name="deleteCarButton" Margin="10 5 10 5">Delete</Button>
+                <Button Background="LightCyan" Name="addCarButton" Margin="10 5 10 5" Click="AddCarButton_OnClick">Add</Button>
+                <Button Background="LightCyan" Name="showCarButton"  Margin="10 5 10 5" Click="ShowCarButton_OnClick">Show</Button>
             </StackPanel>
         </Grid>
             

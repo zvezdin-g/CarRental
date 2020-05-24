@@ -475,5 +475,22 @@ namespace RentalCore.Utils
             cmd.Parameters.Add("@manager", SqlDbType.Int).Value = manager;
             cmd.ExecuteNonQuery();
         }
+        public void QueryAddCar(SqlConnection conn, string cpn, string colour, int model_id)
+        {
+
+            var sql = "exec AddNewCar @Car_Plate_Number, @Colour, @Model_ID";
+
+            var cmd = new SqlCommand()
+            {
+                Connection = conn,
+                CommandText = sql
+            };
+
+            cmd.Parameters.Add("@Car_Plate_Number", SqlDbType.NVarChar).Value = cpn;
+            cmd.Parameters.Add("@Colour", SqlDbType.NVarChar).Value = colour;
+            cmd.Parameters.Add("@Model_ID", SqlDbType.Int).Value = model_id;
+            
+            cmd.ExecuteNonQuery();
+        }
     }
 }

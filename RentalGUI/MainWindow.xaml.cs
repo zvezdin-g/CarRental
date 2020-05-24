@@ -173,8 +173,8 @@ namespace RentalGUI
                 MessageBox.Show("Choose session to show");
                 return;
             }
-            var edit = new MainWindow_Session(conn, selectedSession);
-            edit.ShowDialog();
+            var show = new MainWindow_Session(conn, selectedSession);
+            show.ShowDialog();
             UpdateAll();
         }
         private void AddSessionButton_OnClick(object sender, RoutedEventArgs e)

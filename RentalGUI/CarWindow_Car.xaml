@@ -1,0 +1,38 @@
+﻿<Window x:Class="RentalGUI.CarWindow_Car"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:RentalGUI"
+        mc:Ignorable="d"
+        Title="CarWindow_Car" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <TextBlock Grid.ColumnSpan="3" Name="TitleTextBlock" Margin="20" VerticalAlignment="Center" TextAlignment="Center"  FontSize="24"></TextBlock>
+
+        <TextBlock Grid.Row="1" Grid.Column="0" Margin="20 10" VerticalAlignment="Center" TextAlignment="Center" FontSize="16">Car plate number</TextBlock>
+        <TextBox Grid.Row="1" Grid.Column="1" Margin="20 10" Name="CPNTextBox"></TextBox>
+        <Button Grid.Row="1" Grid.Column="2" Margin="20 10" Name="CPNButton" Click="CPNButton_OnClick">Confirm</Button>
+
+        <TextBlock Grid.Row="2" Grid.Column="0" Margin="20 10" VerticalAlignment="Center" TextAlignment="Center" FontSize="16">Colour</TextBlock>
+        <ComboBox Grid.Row="2" Grid.Column="1" Margin="20 10" IsEnabled="False" Name="ColourComboBox"></ComboBox>
+        <Button Grid.Row="2" Grid.Column="2" Margin="20 10" IsEnabled="False" Name="ColourButton" Click="ColourButton_OnClick">Confirm</Button>
+
+        <TextBlock Grid.Row="3" Grid.Column="0" Margin="20 10" VerticalAlignment="Center" TextAlignment="Center" FontSize="16">Model</TextBlock>
+        <ComboBox Grid.Row="3" Grid.Column="1" Margin="20 10" IsEnabled="False" Name="ModelComboBox" DisplayMemberPath="Model_Name"></ComboBox>
+        <Button Grid.Row="3" Grid.Column="2" Margin="20 10" IsEnabled="False" Name="ModelButton" Click="ModelButton_OnClick">Confirm and add new car</Button>
+
+    </Grid>
+</Window>

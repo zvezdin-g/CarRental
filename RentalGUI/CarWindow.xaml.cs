@@ -75,5 +75,25 @@ namespace RentalGUI
             mw.Show();
             this.Close();
         }
+
+        private void AddCarButton_OnClick(object sender, RoutedEventArgs e)
+        {
+            var add = new CarWindow_Car(conn, null);
+            add.ShowDialog();
+            UpdateCars();
+        }
+
+        private void ShowCarButton_OnClick(object sender, RoutedEventArgs e)
+        {
+            CarQh selectedCar = (CarQh)CarsDataGrid.SelectedItem;
+            if (selectedCar == null)
+            {
+                MessageBox.Show("Choose car to show");
+                return;
+            }
+            var show = new CarWindow_Car(conn, selectedCar);
+            show.ShowDialog();
+            UpdateCars();
+        }
     }
 }
