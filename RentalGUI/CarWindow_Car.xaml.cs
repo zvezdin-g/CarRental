@@ -77,7 +77,7 @@ namespace RentalGUI
         private void CPNButton_OnClick(object sender, RoutedEventArgs e)
         {
             cpn = CPNTextBox.Text;
-            if (cpn == null)
+            if (String.IsNullOrEmpty(cpn))
             {
                 MessageBox.Show("Enter Car Plate Number to continue");
                 return;

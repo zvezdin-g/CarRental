@@ -73,5 +73,12 @@ namespace RentalGUI
             mw.Show();
             this.Close();
         }
+
+        private void AddButton_OnClick(object sender, RoutedEventArgs e)
+        {
+            var add = new ClientWindow_Add(conn);
+            add.ShowDialog();
+            UpdateClients();
+        }
     }
 }

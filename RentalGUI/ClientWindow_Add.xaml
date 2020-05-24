@@ -1,0 +1,58 @@
+﻿<Window x:Class="RentalGUI.ClientWindow_Add"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:RentalGUI"
+        mc:Ignorable="d"
+        Title="ClientWindow_Add" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <TextBlock Grid.ColumnSpan="3" Name="TitleTextBlock" Margin="20" VerticalAlignment="Center" TextAlignment="Center"  FontSize="24"></TextBlock>
+
+        <TextBlock Grid.Row="1" Grid.Column="0" Margin="20 10" VerticalAlignment="Center" TextAlignment="Center" FontSize="16">Last name</TextBlock>
+        <TextBox Grid.Row="1" Grid.Column="1" Margin="20 10" Name="LNTextBox"></TextBox>
+        <Button Grid.Row="1" Grid.Column="2" Margin="20 10" Name="LNButton" Click="LNButton_OnClick">Confirm</Button>
+
+        <TextBlock Grid.Row="2" Grid.Column="0" Margin="20 10" VerticalAlignment="Center" TextAlignment="Center" FontSize="16">First name</TextBlock>
+        <TextBox Grid.Row="2" Grid.Column="1" Margin="20 10" Name="FNTextBox"></TextBox>
+        <Button Grid.Row="2" Grid.Column="2" Margin="20 10" IsEnabled="False" Name="FNButton" Click="FNButton_OnClick">Confirm</Button>
+
+        <TextBlock Grid.Row="3" Grid.Column="0" Margin="20 10" VerticalAlignment="Center" TextAlignment="Center" FontSize="16">DOB</TextBlock>
+        <DatePicker Grid.Row="3" Grid.Column="1" Margin="20 10" IsEnabled="False" Name="DOB"></DatePicker>
+        <Button Grid.Row="3" Grid.Column="2" Margin="20 10" IsEnabled="False" Name="DOBButton" Click="DOBButton_OnClick">Confirm</Button>
+
+        <TextBlock Grid.Row="4" Grid.Column="0" Margin="20 10" VerticalAlignment="Center" TextAlignment="Center" FontSize="16">DOI</TextBlock>
+        <DatePicker Grid.Row="4" Grid.Column="1" Margin="20 10" IsEnabled="False" Name="DOI"></DatePicker>
+        <Button Grid.Row="4" Grid.Column="2" Margin="20 10" IsEnabled="False" Name="DOIButton" Click="DOIButton_OnClick">Confirm</Button>
+
+        <TextBlock Grid.Row="5" Grid.Column="0" Margin="20 10" VerticalAlignment="Center" TextAlignment="Center" FontSize="16">Insurance class</TextBlock>
+        <ComboBox Grid.Row="5" Grid.Column="1" Margin="20 10" IsEnabled="False" Name="InsuranceComboBox" ></ComboBox>
+        <Button Grid.Row="5" Grid.Column="2" Margin="20 10" IsEnabled="False" Name="InsuranceButton" Click="InsuranceButton_OnClick">Confirm</Button>
+
+        <TextBlock Grid.Row="6" Grid.Column="0" Margin="20 10" VerticalAlignment="Center" TextAlignment="Center" FontSize="16">Phone</TextBlock>
+        <TextBox Grid.Row="6" Grid.Column="1" Margin="20 10" Name="PhoneTextBox"></TextBox>
+        <Button Grid.Row="6" Grid.Column="2" Margin="20 10" IsEnabled="False" Name="PhoneButton" Click="PhoneButton_OnClick">Confirm</Button>
+
+        <TextBlock Grid.Row="7" Grid.Column="0" Margin="20 10" VerticalAlignment="Center" TextAlignment="Center" FontSize="16">Licence number</TextBlock>
+        <TextBox Grid.Row="7" Grid.Column="1" Margin="20 10" Name="LicenceTextBox"></TextBox>
+        <Button Grid.Row="7" Grid.Column="2" Margin="20 10" IsEnabled="False" Name="LicenceButton" Click="LicenceButton_OnClick">Confirm and add client</Button>
+
+    </Grid>
+</Window>

@@ -492,5 +492,26 @@ namespace RentalCore.Utils
             
             cmd.ExecuteNonQuery();
         }
+        public void QueryAddClient(SqlConnection conn, string ln, string fn, DateTime dob, DateTime doi, int ins, string phone, string licence)
+        {
+
+            var sql = "exec AddNewClient @LN, @FN, @DOB, @DOI, @Ins, @Phone, @Licence";
+
+            var cmd = new SqlCommand()
+            {
+                Connection = conn,
+                CommandText = sql
+            };
+
+            cmd.Parameters.Add("@LN", SqlDbType.NVarChar).Value = ln;
+            cmd.Parameters.Add("@FN", SqlDbType.NVarChar).Value = fn;
+            cmd.Parameters.Add("@DOB", SqlDbType.Date).Value = dob;
+            cmd.Parameters.Add("@DOI", SqlDbType.Date).Value = doi;
+            cmd.Parameters.Add("@Phone", SqlDbType.NVarChar).Value = phone;
+            cmd.Parameters.Add("@Licence", SqlDbType.NVarChar).Value = licence;
+            cmd.Parameters.Add("@Ins", SqlDbType.Int).Value = ins;
+
+            cmd.ExecuteNonQuery();
+        }
     }
 }
