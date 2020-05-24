@@ -10,11 +10,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RentalGUI", "RentalGUI\Rent
 		{7EA946AA-6DFC-4D6D-A296-5679B6E08464} = {7EA946AA-6DFC-4D6D-A296-5679B6E08464}
 	EndProjectSection
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClientApp", "ClientApp\ClientApp.csproj", "{E9ED36A5-32CA-4FA1-86E8-131EEFA90BA3}"
-	ProjectSection(ProjectDependencies) = postProject
-		{7EA946AA-6DFC-4D6D-A296-5679B6E08464} = {7EA946AA-6DFC-4D6D-A296-5679B6E08464}
-	EndProjectSection
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,10 +24,6 @@ Global
 		{BCDC26A1-CE08-43FA-AD52-0ED89AFABE9A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BCDC26A1-CE08-43FA-AD52-0ED89AFABE9A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BCDC26A1-CE08-43FA-AD52-0ED89AFABE9A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E9ED36A5-32CA-4FA1-86E8-131EEFA90BA3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E9ED36A5-32CA-4FA1-86E8-131EEFA90BA3}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E9ED36A5-32CA-4FA1-86E8-131EEFA90BA3}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E9ED36A5-32CA-4FA1-86E8-131EEFA90BA3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -36,7 +36,7 @@
                     <DataGridTextColumn Header="Manager ID" Binding="{Binding Manager_ID}"/>
                     <DataGridTextColumn Header="Manager name" Binding="{Binding Manager_Name}"/>
                     <DataGridTextColumn Header="DOB" Binding="{Binding DOB}"/>
-                    <DataGridTextColumn Header="works from" Binding="{Binding Works_from}"/>
+                    <DataGridTextColumn Header="Works from" Binding="{Binding Works_from}"/>
                     <DataGridTextColumn Header="Phone" Binding="{Binding Phone}" Width="Auto"/>
                     <DataGridTextColumn Header="Passport number" Binding="{Binding Passport_number}" Width="Auto"/>
                 </DataGrid.Columns>
