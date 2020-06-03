@@ -34,7 +34,7 @@
             <DataGrid Name="CarsDataGrid" Grid.Row="1" AutoGenerateColumns="False" IsReadOnly="True">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Car ID" Binding="{Binding Car_ID}"/>
-                    <DataGridTextColumn Header="Start date" Binding="{Binding Car_Plate_Number}"/>
+                    <DataGridTextColumn Header="Car plate number" Binding="{Binding Car_Plate_Number}"/>
                     <DataGridTextColumn Header="Model ID" Binding="{Binding Model_ID}"/>
                     <DataGridTextColumn Header="Colour" Binding="{Binding Colour}"/>
                     <DataGridTextColumn Header="Fuel left %" Binding="{Binding Fuel_left}"/>
