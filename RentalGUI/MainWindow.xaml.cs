@@ -32,6 +32,8 @@ namespace RentalGUI
             {
                 conn.Open();
                 UpdateAll();
+                var tr = financesList.Sum(x => x.Total_cost);
+                TRTextBlock.Text = $"Total revenue: {tr.ToString()}";
             }
             catch (Exception e)
             {
@@ -79,6 +81,7 @@ namespace RentalGUI
                                                        <= end);
                     PastSessionsDataGrid.ItemsSource = null;
                     PastSessionsDataGrid.ItemsSource = datedOrders;
+
                 }
                 else
                 {
@@ -105,6 +108,8 @@ namespace RentalGUI
                                                        <= end);
                     FinancesDataGrid.ItemsSource = null;
                     FinancesDataGrid.ItemsSource = datedFinances;
+                    var dated_tr = datedFinances.Sum(x => x.Total_cost);
+                    TRTextBlock.Text = $"Total revenue during this period: {dated_tr.ToString()}";
                 }
                 else
                 {

@@ -513,5 +513,27 @@ namespace RentalCore.Utils
 
             cmd.ExecuteNonQuery();
         }
+        public int QueryNumOfSessions(SqlConnection conn, int car_id)
+        {
+            var nos = 0;
+            var sql = $"select count(*) from Car c join Session s on c.Car_ID=s.Car_ID where c.Car_ID={car_id.ToString()} group by c.Car_ID";
+            var cmd = new SqlCommand
+            {
+                Connection = conn,
+                CommandText = sql
+            };
+            using (DbDataReader reader = cmd.ExecuteReader())
+            {
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        nos = reader.GetInt32(0);
+                    }
+                }
+            }
+
+            return nos;
+        }
     }
 }

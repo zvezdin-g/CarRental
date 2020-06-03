@@ -46,6 +46,7 @@ namespace RentalGUI
                 ModelComboBox.ItemsSource = new List<ModelQh>()
                     {qm.QueryModels(connection).Find(x => x.Model_ID == selectedCar.Model_ID)};
                 ModelComboBox.SelectedIndex = 0;
+                NumOfSessionsTextBlock.Text = $"Number of sessions, where this car was used: {qm.QueryNumOfSessions(connection, selectedCar.Car_ID)}";
 
             }
             else

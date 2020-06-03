@@ -34,5 +34,6 @@
         <ComboBox Grid.Row="3" Grid.Column="1" Margin="20 10" IsEnabled="False" Name="ModelComboBox" DisplayMemberPath="Model_Name"></ComboBox>
         <Button Grid.Row="3" Grid.Column="2" Margin="20 10" IsEnabled="False" Name="ModelButton" Click="ModelButton_OnClick">Confirm and add new car</Button>
 
+        <TextBlock Name="NumOfSessionsTextBlock"  Grid.Row="4" Grid.ColumnSpan="3" Margin="20" HorizontalAlignment="Center"></TextBlock>
     </Grid>
 </Window>

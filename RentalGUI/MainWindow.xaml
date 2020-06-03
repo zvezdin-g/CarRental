@@ -98,7 +98,8 @@
                     <TextBlock Grid.Row="0" Grid.Column="1" Margin="10" HorizontalAlignment="Center" FontWeight="Bold">End date</TextBlock>
                     <DatePicker Name="FStartDatePicker" Grid.Row="1" Grid.Column="0" Margin="10"></DatePicker>
                     <DatePicker Name="FEndDatePicker" Grid.Row="1" Grid.Column="1" Margin="10"></DatePicker>
-                    <Button Background="LightCyan" Name="FConfirmDatesButton" Grid.Row="2" Grid.ColumnSpan="2" Margin="300 10" Click="FConfirmDatesButton_OnClick">Confirm</Button>
+                    <TextBlock Name="TRTextBlock"  Grid.Row="2" HorizontalAlignment="Center" FontWeight="Bold" Margin="10"></TextBlock>
+                    <Button Background="LightCyan" Name="FConfirmDatesButton" Grid.Row="2" Grid.Column="1" Margin="100 10" Click="FConfirmDatesButton_OnClick">Confirm</Button>
                     <DataGrid Grid.Row="3" Grid.ColumnSpan="2" Name="FinancesDataGrid" AutoGenerateColumns="False" IsReadOnly="True">
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="Session ID" Binding="{Binding Session_ID}"/>
